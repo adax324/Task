@@ -1,0 +1,68 @@
+<!-- Start of sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fab fa-old-republic"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Java <sup>JSP</sup></div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Elements of left sidebar -->
+    <li class="nav-item ">
+        <a class="nav-link" href='<c:url value="/"/>'>
+            <i class="fas fa-globe"></i>
+            <span>Home</span></a>
+    </li>
+    <li class="nav-item ">
+        <a href='<c:url value="/persons/personList"/>' class="nav-link">
+            <i class="fas fa-robot"></i>
+            <span>Kursanci</span>
+        </a>
+    </li>
+    <li class="nav-item ">
+        <a href='<c:url value="/course"/>' class="nav-link">
+            <i class="fas fa-space-shuttle"></i>
+            <span>Kurs</span>
+        </a>
+    </li>
+    <li class="nav-item ">
+        <a href='<c:url value="/tasks/all"/>' class="nav-link">
+            <i class="fas fa-journal-whills"></i>
+            <span>Taski</span>
+        </a>
+    </li>
+    <li class="nav-item ">
+        <a href='<c:url value="/technology"/>' class="nav-link">
+            <i class="fas fa-atom"></i>
+            <span>Technologie</span>
+        </a>
+    </li>
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+
+    <div class="sidebar-heading">
+        Inne
+    </div>
+    <li class="nav-item ">
+        <a href='<c:url value="/"/>' class="nav-link">
+            <i class="far fa-thumbs-up"></i>
+            <span>Ocena</span>
+        </a>
+
+    </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+
+
+</ul>
