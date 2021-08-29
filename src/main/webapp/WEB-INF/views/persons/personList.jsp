@@ -39,19 +39,20 @@
                                         <th>Akcja</th>
                                     </tr>
                                 <tbody>
-                                    <td>Adam</td>
-                                    <td>Hrycenko</td>
-                                    <td><a href="https://github.com/adax324" target="blank"
+                                    <c:forEach items="${person}" var="variable">
+                                    <td>${variable.firstName}</td>
+                                    <td>${variable.lastName}</td>
+                                    <td><a href='<c:url value="${variable.urlGit}"/>' target="blank"
                                             class="btn btn-info btn-circle">
                                             <i class="fas fa-info-circle"></i></a></td>
-                                    <td>Zaczeło się od początku</td>
+                                    <td>${variable.description}</td>
                                     <td><a href="#" class="btn btn-success btn-circle" data-toggle="modal"
                                             data-target="#umodal">
                                             <i class="fas fa-check"></i>
                                         </a></td>
-                                    <td><a href='<c:url value="/persons/editNewPerson"/>' style="text-decoration: none;"><button class="btn btn-primary btn-block">Edytuj</button></a></td>
+                                    <td><a href='<c:url value="/persons/editNewPerson/${variable.id}"/>' style="text-decoration: none;"><button class="btn btn-primary btn-block">Edytuj</button></a></td>
                                 </tbody>
-
+                                </c:forEach>
                                 </thead>
                             </table>
 

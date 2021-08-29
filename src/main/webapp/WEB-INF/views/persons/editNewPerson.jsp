@@ -19,6 +19,7 @@
 
                 <%@include file="../dynamic/topbar.jspf"%>
                 <!-- begin of form -->
+                <form name="editPerson" method="post" action='<c:url value="/persons/editNewPerson/${person.id}"/>'>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
@@ -27,32 +28,34 @@
                                     <div class="form-group row">
                                         <div class="col-2"><label for="imie">Imię</label></div>
                                         <div class="col-10"><input class="form-control" type="text"
+                                                                   value="${person.firstName}" name="firstName"
                                                 placeholder="Wpisz imię">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-2"><label for="nazwisko">Nazwisko</label></div>
                                         <div class="col-10"><input class="form-control" type="text"
+                                                                   value="${person.lastName}" name="lastName"
                                                 placeholder="Wpisz nazwisko"></div>
 
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-2"><label for="git">URL do Gita</label></div>
                                         <div class="col-10"><input type="text" class="form-control" id="git"
+                                                                   value="${person.urlGit}" name="urlGit"
                                                 placeholder="wpisz adres do gita"></div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-2"><label for="">Od czego się zaczeło</label></div>
+                                        <div class="col-2"><label>Od czego się zaczeło</label></div>
                                         <div class="col-10">
-                                            <textarea name="textarea" id="textarea1" rows="6" class="form-control"
-                                                placeholder="Wpisz coś o sobie"></textarea>
+                                            <textarea class="form-control" id="ocsz"  rows="10"  name="description" placeholder="Od czego się zaczęło">${person.description}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-2"><label for="">Czy kursant opanował umiejętności</label></div>
-                                        <div class="col-1"><label for=""><input type="radio" name="Tak">Tak</label>
+                                        <div class="col-2"><label>Czy kursant opanował umiejętności</label></div>
+                                        <div class="col-1"><label><input type="radio" name="Tak">Tak</label>
                                         </div>
-                                        <div class="col-1"><label for=""><input type="radio" name="Nie">Nie</label>
+                                        <div class="col-1"><label><input type="radio" name="Nie">Nie</label>
                                         </div>
 
                                     </div>
@@ -64,58 +67,68 @@
                                     <div class="form-group row">
                                         <div class="col-2">
                                             <label for="">Java</label>
-                                            <input class="form-control" type="text" placeholder="%">
+                                            <input class="form-control" type="text"
+                                                   value="${person.java}" name="java" placeholder="%">
                                         </div>
 
                                         <div class="col-2">
                                             <label for="">Wzorce projektowe</label>
-                                            <input class="form-control" type="text" placeholder="%">
+                                            <input class="form-control" type="text"
+                                                   value="${person.bestPractice}" name="bestPractice" placeholder="%">
                                         </div>
 
 
                                         <div class="col-2">
-                                            <label for="">TDD</label>
-                                            <input class="form-control" type="text" placeholder="%">
+                                            <label>TDD</label>
+                                            <input class="form-control" type="text"
+                                                   value="${person.tdd}" name="tdd" placeholder="%">
                                         </div>
 
 
                                         <div class="col-2">
                                             <label>Bazy danych SQL</label>
-                                            <input class="form-control" type="text" placeholder="%">
+                                            <input class="form-control" type="text"
+                                                   value="${person.question}" name="question" placeholder="%">
                                         </div>
 
 
                                         <div class="col-2">
                                             <label>Hibernate JPA</label>
-                                            <input type="text" class="form-control" placeholder="%">
+                                            <input type="text" class="form-control"
+                                                   value="${person.hibernate}" name="hibernate" placeholder="%">
                                         </div>
 
                                         <div class="col-2">
                                             <label>HTML+CSS</label>
-                                            <input type="text" class="form-control" placeholder="%">
+                                            <input type="text" class="form-control"
+                                                   value="${person.html}" name="html" placeholder="%">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                             <div class="col-2">
                                                 <label>JSP</label>
-                                                <input type="text" class="form-control" placeholder="%">
+                                                <input type="text" class="form-control"
+                                                       value="${person.jsp}" name="jsp" placeholder="%">
                                             </div>
                                             <div class="col-2">
                                                 <label>Thymleaf</label>
-                                                <input type="text" class="form-control" placeholder="%">
+                                                <input type="text" class="form-control"
+                                                       value="${person.thymeleaf}" name="thymeleaf" placeholder="%">
                                             </div>
                                             <div class="col-2">
                                                 <label>Git</label>
-                                                <input type="text" class="form-control" placeholder="%">
+                                                <input type="text" class="form-control"
+                                                       value="${person.git}" name="git" placeholder="%">
                                             </div>
 
 
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-success col-2 mb-3">Zapisz</button>
-                            <button type="button" class="btn btn-danger col-1 mb-3" 
-                            data-toggle="modal" data-target="#deletePersonModal">Usuń</button>
+                            <input type="submit" value="Zapisz" class="btn btn-success col-2 mb-3"/>
+
+                            <input type="button" class="btn btn-danger col-1 mb-3"
+                            data-toggle="modal" data-target="#deletePersonModal" value="Usuń"/>
 
                         </div>
 
@@ -124,7 +137,7 @@
 
                 </div>
                 <!-- end of form -->
-
+                </form>
             </div>
             <!-- End of Main Content -->
 
@@ -148,7 +161,8 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Czy na pewno chcesz usunąć osobę? :c</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -157,7 +171,9 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal">Jednak się rozmyśliłem</button>
-              <button type="button" class="btn btn-danger" >Usuwamy!</button>
+                <form name="delete" method="post" action='<c:url value="/persons/delete/${person.id}"/>'>
+              <input type="submit" class="btn btn-danger" value="Usuwamy" ></input>
+                </form>
             </div>
           </div>
         </div>

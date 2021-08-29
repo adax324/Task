@@ -63,47 +63,22 @@
                             </div>
                         </div>
                         <div class="col-10">
-                            <div class="card shadow border-left-primary mb-2 py-3">
-                                <div class="card-body ">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Adam Hrycenko<strong>|Dodano:</strong>25-08-2021<strong>|Deadline:</strong>28-08-2021
+                            <c:forEach items="${tasks}" var="variable">
+                                <a style="text-decoration: none" href='<c:url value="/tasks/editTask/${variable.id}"/>'>
+                                <div class="card shadow ${variable.colorS} mb-2 py-3">
+                                    <div class="card-body ">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            ${variable.owner.firstName} ${variable.owner.lastName}<strong>|Dodano:</strong>${variable.addDate}<strong>|Deadline:</strong>${variable.deadLineDateLD}
+                                        </div>
+                                        ${variable.body}
+
                                     </div>
-                                    Do wykonania strona przy użyciu Bootstrap 4
-                                
                                 </div>
-                            </div>
-                            <div class="card shadow border-left-secondary mb-2 py-3">
-                                <div class="card-body">
-                                    <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
-                                        Milena Romanow<strong>|Dodano:</strong>22-08-2021<strong>|Deadline:</strong>31-08-2021
-                                    </div>
-                                    Do wykonania czerowny baner z logo klienta Pilne!
-                                </div>
-                            </div>
-                            <div class="card shadow border-left-info mb-2 py-3">
-                                <div class="card-body">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                        Aleksander Bogucki<strong>|Dodano:</strong>19-08-2021<strong>|Deadline:</strong>20-08-2021
-                                    </div>
-                                    Poprawka do css głównego stylu
-                                </div>
-                            </div>
-                            <div class="card shadow border-left-success mb-2 py-3">
-                                <div class="card-body">
-                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                        Wojciech Mazur<strong>|Dodano:</strong>23-08-2021<strong>|Deadline:</strong>24-08-2021
-                                    </div>
-                                    Treść strony #23432142312
-                                </div>
-                            </div>
-                            <div class="card shadow border-left-danger mb-2 py-3">
-                                <div class="card-body">
-                                <div class="font-weight-bold text-danger text-uppercase text-xs mb-1">
-                                    Steve Nemo<strong>|Dodano:</strong>01-01-2021<strong>|Deadline:</strong>31-12-2021
-                                </div>
-                                Leżeć i odpoczywać na wyspach 
-                            </div>
-                            </div>
+                                </a>
+                            </c:forEach>
+
+
+
                         </div>
                     </div>
                 </div>

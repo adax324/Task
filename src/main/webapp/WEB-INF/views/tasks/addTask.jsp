@@ -19,6 +19,7 @@
 
                 <%@include file="../dynamic/topbar.jspf"%>
                 <!-- begin of form -->
+                <form name="addTask" method="post" action='<c:url value="/tasks/addTask"/>'>
                <div class="container-fluid">
                    
                            <div class="card shadow mb-4 ">
@@ -28,12 +29,13 @@
                                            <label >Wybierz kursanta</label>
                                          </div>
                                          <div class="col-10">
-                                            <select class="form-control" name="Kursant" id="kursanci">
-                                                <option value="Wybierz">Wybierz</option>
-                                                <option value="Adam">Adam</option>
-                                                <option value="Ewa">Ewa</option>
-                                                <option value="Roman">Roman</option>
-                                                <option value="Juzio">Juzio</option>
+
+                                            <select class="form-control" id="owner" name="owner.id">
+                                                <option hidden>Wybierz</option>
+                                                <c:forEach items="${persons}" var="variable">
+                                                    <option value="${variable.id}">
+                                                            ${variable.id} ${variable.firstName} ${variable.lastName}</option>
+                                                </c:forEach>
                                             </select>
                                          </div>
                                    </div>
@@ -42,7 +44,7 @@
                                            <label>Deadline</label>
                                        </div>
                                        <div class="col-10">
-                                           <input type="date" class="form-control">
+                                           <input type="date" name="deadLineDate" class="form-control">
                                        </div>
                                    </div>
                                    <div class="form-group row">
@@ -50,7 +52,7 @@
                                            <label>Treść zadania</label>
                                        </div>
                                        <div class="col-10">
-                                           <textarea class="form-control" rows="5" placeholder="Wpisz treść zadania do wykonania"></textarea>
+                                           <textarea class="form-control" rows="5" name="body" placeholder="Wpisz treść zadania do wykonania"></textarea>
                                        </div>
                                    </div>
                                </div>
@@ -59,26 +61,27 @@
                             <div class="card-header py-3">
                                 <div class="form-group row">
                                     <div class="col-2">
-                                        <label class="radio-inline"><input type="radio"><i class="btn btn-success btn-circle mx-2"></i>Poziom junior</label>
+                                        <label class="radio-inline"><input type="radio" name="color" value="0"><i class="btn btn-success btn-circle mx-2"></i>Poziom junior</label>
                                     </div>
                                     <div class="col-2">
-                                        <label><input type="radio"><i class="btn btn-info btn-circle mx-2"></i>Poziom junior+</label>
+                                        <label><input type="radio" name="color" value="1" ><i class="btn btn-info btn-circle mx-2"></i>Poziom junior+</label>
                                     </div>
                                     <div class="col-2">
-                                        <label><input type="radio"><i class="btn btn-secondary btn-circle mx-2"></i>Poziom mid</label>
+                                        <label><input type="radio" name="color" value="2" ><i class="btn btn-secondary btn-circle mx-2"></i>Poziom mid</label>
                                     </div>
                                     <div class="col-2">
-                                        <label><input type="radio"><i class="btn btn-primary btn-circle mx-2"></i>Poziom mid+</label>
+                                        <label><input type="radio" name="color" value="3"><i class="btn btn-primary btn-circle mx-2"></i>Poziom mid+</label>
                                     </div>
                                     <div class="col-2">
-                                        <label><input type="radio"><i class="btn btn-danger btn-circle mx-2"></i>Poziom senior</label>
+                                        <label><input type="radio" name="color" value="4" ><i class="btn btn-danger btn-circle mx-2"></i>Poziom senior</label>
                                     </div>
                                 </div>
                             </div>
                            </div>
-                           <button type="button" class="btn btn-primary">Zapisz</button>
+                           <input type="submit" class="btn btn-primary" value="Zapisz"></input>
                    
                </div>
+                </form>
                 <!-- end of form -->
 
             </div>

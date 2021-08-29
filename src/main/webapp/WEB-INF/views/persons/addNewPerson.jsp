@@ -18,6 +18,7 @@
             <div id="content">
 
                 <%@include file="../dynamic/topbar.jspf"%>
+                <form name="addNewPerson" method="post" action='<c:url value="/persons/addNewPerson"/>'>
                 <!-- begin of form -->
                 <div class="container-fluid">
                     <div class="row">
@@ -30,7 +31,7 @@
                                             <label for="imie">Imię</label>
                                             </div>
                                             <div class="col-10">
-                                                <input class="form-control" type="text" placeholder="wpisz imię">
+                                                <input class="form-control" type="text" name="firstName"  placeholder="wpisz imię">
                                             </div>
                                         </div>
 
@@ -39,7 +40,7 @@
                                             <label for="nazwisko">Nazwisko</label>
                                             </div>
                                             <div class="col-10">
-                                            <input type="text" class="form-control" placeholder="wpisz nazwisko">
+                                            <input type="text" class="form-control" name="lastName" placeholder="wpisz nazwisko">
                                             </div>
                                         </div>
 
@@ -48,7 +49,7 @@
                                                 <label for="Url do gita">Url do gita</label>
                                             </div>
                                             <div class="col-10">
-                                                <input type="text" class="form-control" placeholder="wpisz url do gita">
+                                                <input type="text" class="form-control" name="urlGit" placeholder="wpisz url do gita">
                                             </div>
                                         </div>
 
@@ -58,7 +59,7 @@
                                                 
                                             </div>
                                             <div class="col-10">
-                                                <textarea class="form-control" name="Od czego się zaczeło" id="ocsz"  rows="10" placeholder="Od czego się zaczęło"></textarea>
+                                                <textarea class="form-control" id="ocsz"  rows="10" name="description" placeholder="Od czego się zaczęło"></textarea>
                                             </div>
                                         </div>
 
@@ -72,7 +73,7 @@
                                 </div>
                                  <!-- koniec form -->
                             </div>
-                            <button type="button" class="btn btn-success">Wyślij</button>
+                            <input class="btn btn-success pull-left" type="submit" value="Wyślij" id="searchButton"></input>
 
                         </div>
                     </div>
@@ -90,7 +91,7 @@
                     
                 </div>
                 <!-- end of form -->
-                
+                </form>
             </div>
             <!-- End of Main Content -->
 
