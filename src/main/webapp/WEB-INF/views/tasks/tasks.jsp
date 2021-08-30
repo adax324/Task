@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-2">
+                        <div class="col-3">
                             <div class="card bg-success text-white shadow">
                                 <div class="card-body">
                                     <strong>Nowicjusz</strong>
@@ -62,13 +62,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-10">
+                        <div class="col-9">
                             <c:forEach items="${tasks}" var="variable">
                                 <a style="text-decoration: none" href='<c:url value="/tasks/editTask/${variable.id}"/>'>
                                 <div class="card shadow ${variable.colorS} mb-2 py-3">
                                     <div class="card-body ">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             ${variable.owner.firstName} ${variable.owner.lastName}<strong>|Dodano:</strong>${variable.addDate}<strong>|Deadline:</strong>${variable.deadLineDateLD}
+                                            <div class="float-right">
+                                                <form name="deleteTask" method="post" action='<c:url value="/tasks/delete/${variable.id}"/>'>
+                                                    <input type="submit" class="btn btn-danger btn-circle"  value="D" />
+                                                </form>
+                                            </div>
                                         </div>
                                         ${variable.body}
 

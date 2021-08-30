@@ -35,7 +35,7 @@ public class Person {
     private Integer git;
     private Integer checkbox;
     //taski
-    @OneToMany(mappedBy = "owner",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "owner",fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
     private List<Task> task;
 
     public Person(Long id, String firstName, String lastName, String urlGit, String description) {

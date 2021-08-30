@@ -98,9 +98,6 @@
                     </div>
 
                     <input type="submit" class="btn btn-primary" value="Zapisz"/>
-                    <form name="delete" method="post" action='<c:url value="/tasks/delete/${person.id}"/>'>
-                        <input type="submit" class="btn btn-danger" value="Usuwamy" ></input>
-                    </form>
 
                 </div>
             </form>

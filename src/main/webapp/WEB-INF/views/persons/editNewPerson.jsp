@@ -72,7 +72,7 @@
                                         </div>
 
                                         <div class="col-2">
-                                            <label for="">Wzorce projektowe</label>
+                                            <label for="">W. projektowe</label>
                                             <input class="form-control" type="text"
                                                    value="${person.bestPractice}" name="bestPractice" placeholder="%">
                                         </div>
