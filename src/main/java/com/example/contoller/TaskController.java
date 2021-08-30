@@ -46,7 +46,7 @@ public class TaskController {
     }
     @GetMapping("tasks/all")
     public String getAllTasks(Model model){
-        model.addAttribute("tasks",taskService.getAllTasks());
+        model.addAttribute("tasks",taskService.getSortedAllTasks());
         return "tasks/tasks";
     }
     @PostMapping("tasks/delete/{id}")

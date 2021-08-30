@@ -67,7 +67,7 @@
                                 <a style="text-decoration: none" href='<c:url value="/tasks/editTask/${variable.id}"/>'>
                                 <div class="card shadow ${variable.colorS} mb-2 py-3">
                                     <div class="card-body ">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold ${variable.textColor} text-uppercase mb-1">
                                             ${variable.owner.firstName} ${variable.owner.lastName}<strong>|Dodano:</strong>${variable.addDate}<strong>|Deadline:</strong>${variable.deadLineDateLD}
                                             <div class="float-right">
                                                 <form name="deleteTask" method="post" action='<c:url value="/tasks/delete/${variable.id}"/>'>
@@ -75,8 +75,9 @@
                                                 </form>
                                             </div>
                                         </div>
+                                        <div class="text-black">
                                         ${variable.body}
-
+                                        </div>
                                     </div>
                                 </div>
                                 </a>
