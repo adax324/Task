@@ -30,11 +30,11 @@
                                          </div>
                                          <div class="col-10">
 
-                                            <select class="form-control" id="owner" name="owner.id">
+                                            <select class="form-control" id="owner" name="owner.id" >
                                                 <option hidden>Wybierz</option>
                                                 <c:forEach items="${persons}" var="variable">
                                                     <option value="${variable.id}">
-                                                            ${variable.id} ${variable.firstName} ${variable.lastName}</option>
+                                                            ${variable.id}. ${variable.firstName} ${variable.lastName}</option>
                                                 </c:forEach>
                                             </select>
                                          </div>
@@ -44,7 +44,7 @@
                                            <label>Deadline</label>
                                        </div>
                                        <div class="col-10">
-                                           <input type="date" name="deadLineDate" class="form-control">
+                                           <input type="date" name="deadLineDateString" class="form-control">
                                        </div>
                                    </div>
                                    <div class="form-group row">
@@ -61,25 +61,25 @@
                             <div class="card-header py-3">
                                 <div class="form-group row">
                                     <div class="col-2">
-                                        <label class="radio-inline"><input type="radio" name="color" value="0"><i class="btn btn-success btn-circle mx-2"></i>Poziom junior</label>
+                                        <label class="radio-inline"><input type="radio" name="codeColor" value="0"><i class="btn btn-success btn-circle mx-2"></i>Poziom junior</label>
                                     </div>
                                     <div class="col-2">
-                                        <label><input type="radio" name="color" value="1" ><i class="btn btn-info btn-circle mx-2"></i>Poziom junior+</label>
+                                        <label><input type="radio" name="codeColor" value="1" ><i class="btn btn-info btn-circle mx-2"></i>Poziom junior+</label>
                                     </div>
                                     <div class="col-2">
-                                        <label><input type="radio" name="color" value="2" ><i class="btn btn-secondary btn-circle mx-2"></i>Poziom mid</label>
+                                        <label><input type="radio" name="codeColor" value="2" ><i class="btn btn-secondary btn-circle mx-2"></i>Poziom mid</label>
                                     </div>
                                     <div class="col-2">
-                                        <label><input type="radio" name="color" value="3"><i class="btn btn-primary btn-circle mx-2"></i>Poziom mid+</label>
+                                        <label><input type="radio" name="codeColor" value="3"><i class="btn btn-primary btn-circle mx-2"></i>Poziom mid+</label>
                                     </div>
                                     <div class="col-2">
-                                        <label><input type="radio" name="color" value="4" ><i class="btn btn-danger btn-circle mx-2"></i>Poziom senior</label>
+                                        <label><input type="radio" name="codeColor" value="4" ><i class="btn btn-danger btn-circle mx-2"></i>Poziom senior</label>
                                     </div>
                                 </div>
                             </div>
                            </div>
-                           <input type="submit" class="btn btn-primary" value="Zapisz"></input>
-                   
+                   <input type="submit" class="btn btn-primary" value="Zapisz"/>
+
                </div>
                 </form>
                 <!-- end of form -->

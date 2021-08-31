@@ -51,7 +51,7 @@ public class PersonService {
         editPerson.setJsp(person.getJsp());
         editPerson.setThymeleaf(person.getThymeleaf());
         editPerson.setGit(person.getGit());
-        editPerson.setCheckbox(person.getCheckbox());
+        editPerson.setCheckbox(Integer.parseInt(person.getCheckboxString()));
 
         personRepository.saveAndFlush(editPerson);
     }

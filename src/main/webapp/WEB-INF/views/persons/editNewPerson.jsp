@@ -53,9 +53,13 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-2"><label>Czy kursant opanował umiejętności</label></div>
-                                        <div class="col-1"><label><input type="radio" name="Tak">Tak</label>
+                                        <div class="col-1"><label><input type="radio" name="checkboxString" value="0"
+                                        <c:if test="${person.checkbox==0}">checked</c:if>
+                                        >Tak</label>
                                         </div>
-                                        <div class="col-1"><label><input type="radio" name="Nie">Nie</label>
+                                        <div class="col-1"><label><input type="radio" name="checkboxString" value="1"
+                                        <c:if test="${person.checkbox==1}">checked</c:if>
+                                        >Nie</label>
                                         </div>
 
                                     </div>

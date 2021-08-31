@@ -35,18 +35,29 @@ public class TaskController {
     }
     @PostMapping("tasks/editTask/{id}")
     public RedirectView editTask(@PathVariable Long id, @ModelAttribute Task editedTask){
+        if (editedTask.getDeadLineDateString()==null||editedTask.getBody()==null||editedTask.getCodeColor()==null){
+            return new RedirectView("editTask/"+id);
+        }
         taskService.editTask(id,editedTask);
 
         return new RedirectView("../all");
     }
     @PostMapping("tasks/addTask")
     public RedirectView addNewTask(@ModelAttribute Task newTask){
+        if (newTask.getDeadLineDateString()==null||newTask.getBody()==null||newTask.getCodeColor()==null
+                ||newTask.getOwner()==null){
+            return new RedirectView("addTask");
+        }
+
+
+
         taskService.addNewTask(newTask);
         return new RedirectView("all");
     }
     @GetMapping("tasks/all")
     public String getAllTasks(Model model){
         model.addAttribute("tasks",taskService.getSortedAllTasks());
+        model.addAttribute("bgColor", taskService.getBgColorsListSorted());
         return "tasks/tasks";
     }
     @PostMapping("tasks/delete/{id}")

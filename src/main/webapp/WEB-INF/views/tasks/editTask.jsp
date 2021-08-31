@@ -29,7 +29,7 @@
                                     <label>Editowanie kursanta</label>
                                 </div>
                                 <div class="col-10">
-                                    <span>Id: ${task.owner.id}Imię: ${task.owner.firstName} Nazwisko: ${task.owner.lastName}</span>
+                                    <span>Id: ${task.owner.id} Imię: ${task.owner.firstName} Nazwisko: ${task.owner.lastName}</span>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -37,7 +37,7 @@
                                     <label>Deadline</label>
                                 </div>
                                 <div class="col-10">
-                                    <input type="date" name="deadLineDate" value="${task.deadLineDateLD}"
+                                    <input type="date" name="deadLineDateString" value="${task.deadLineDate}"
                                            class="form-control">
                                 </div>
                             </div>
@@ -57,8 +57,8 @@
                             <div class="form-group row">
 
                                 <div class="col-2">
-                                    <label class="radio-inline"><input type="radio" name="color" value="0"
-                                    <c:if test="${task.color == 0}"> checked </c:if>
+                                    <label class="radio-inline"><input type="radio" name="codeColor" value="0"
+                                    <c:if test="${task.codeColor == 0}"> checked </c:if>
 
                                     ><i
                                             class="btn btn-success btn-circle mx-2"></i>Poziom junior</label>
@@ -66,28 +66,28 @@
 
 
                                 <div class="col-2">
-                                    <label><input type="radio" name="color" value="1" <c:if test="${task.color == 1}">
+                                    <label><input type="radio" name="codeColor" value="1" <c:if test="${task.codeColor == 1}">
                                                   checked </c:if>><i
                                             class="btn btn-info btn-circle mx-2"></i>Poziom junior+</label>
                                 </div>
 
 
                                 <div class="col-2">
-                                    <label><input type="radio" name="color" value="2" <c:if test="${task.color == 2}">
+                                    <label><input type="radio" name="codeColor" value="2" <c:if test="${task.codeColor == 2}">
                                                   checked </c:if>><i
                                             class="btn btn-secondary btn-circle mx-2"></i>Poziom mid</label>
                                 </div>
 
 
                                 <div class="col-2">
-                                    <label><input type="radio" name="color" value="3" <c:if test="${task.color == 3}">
+                                    <label><input type="radio" name="codeColor" value="3" <c:if test="${task.codeColor == 3}">
                                                   checked </c:if>><i
                                             class="btn btn-primary btn-circle mx-2"></i>Poziom mid+</label>
                                 </div>
 
 
                                 <div class="col-2">
-                                    <label><input type="radio" name="color" value="4" <c:if test="${task.color == 4}">
+                                    <label><input type="radio" name="codeColor" value="4" <c:if test="${task.codeColor == 4}">
                                                   checked </c:if>><i
                                             class="btn btn-danger btn-circle mx-2"></i>Poziom senior</label>
                                 </div>

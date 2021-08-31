@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -23,7 +24,7 @@ public class TaskService {
     public void addNewTask(Task newTask) {
         newTask.setColors();
         newTask.setAddDate(LocalDate.now());
-        newTask.setDeadLineDateLD(LocalDate.parse(newTask.getDeadLineDate()));
+        newTask.setDeadLineDate(LocalDate.parse(newTask.getDeadLineDateString()));
 
 
         taskRepository.saveAndFlush(newTask);
@@ -37,10 +38,16 @@ public class TaskService {
         tasks.sort(new Comparator<Task>() {
             @Override
             public int compare(Task o1, Task o2) {
-                return o1.getColor()- o2.getColor();
+                if(o1.getCodeColor()==null||o2.getCodeColor()==null){
+                    return 0;
+                }
+                return o1.getCodeColor()- o2.getCodeColor();
             }
         });
         return tasks;
+    }
+    public List<String> getBgColorsListSorted(){
+        return Task.listOfBgColorsByCode();
     }
 
     public Task getTask(Long id){

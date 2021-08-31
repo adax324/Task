@@ -7,6 +7,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import static com.example.enums.ColorsEnum.*;
 
 @Entity
 @NoArgsConstructor
@@ -29,46 +35,50 @@ public class Task {
 
     private LocalDate addDate;
     @Transient
-    private String deadLineDate;
-    private LocalDate deadLineDateLD;
+    private String deadLineDateString;
+    private LocalDate deadLineDate;
     //colors
-    private Integer color;
-    private String colorS;
+    private Integer codeColor;
+    private String sideColor;
     private String textColor;
 
 
     public void setColors(){
-        switch (color){
+        switch (codeColor){
         case 0:
-        setColorS("border-left-success");
-        setTextColor("text-success");
+        setSideColor(success.getSideColor());
+        setTextColor(success.getTextColor());
         break;
         case 1:
-        setColorS("border-left-info");
-        setTextColor("text-info");
+        setSideColor(info.getSideColor());
+        setTextColor(info.getTextColor());
 
         break;
         case 2:
-        setColorS("border-left-secondary");
-        setTextColor("text-secondary");
+        setSideColor(secondary.getSideColor());
+        setTextColor(secondary.getTextColor());
 
         break;
         case 3:
-        setColorS("border-left-primary");
-        setTextColor("text-primary");
+        setSideColor(primary.getSideColor());
+        setTextColor(primary.getTextColor());
 
         break;
         case 4:
-        setColorS("border-left-danger");
-        setTextColor("text-danger");
+        setSideColor(danger.getSideColor());
+        setTextColor(danger.getTextColor());
 
         break;
     } }
     public void editTask(Task editedTask){
         this.body=editedTask.getBody();
-        this.deadLineDateLD=editedTask.getDeadLineDateLD();
-        this.color=editedTask.getColor();
+        this.deadLineDate =editedTask.getDeadLineDate();
+        this.codeColor =editedTask.getCodeColor();
         setColors();
+    }
+    public static List<String> listOfBgColorsByCode(){
+        return new ArrayList<>(List.of(success.getBgColor(), info.getBgColor(), secondary.getBgColor(),
+                primary.getBgColor(), danger.getBgColor()));
     }
 
 

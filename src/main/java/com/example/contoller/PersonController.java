@@ -45,6 +45,7 @@ public class PersonController {
     }
     @PostMapping("persons/editNewPerson/{id}")
     public RedirectView EditPerson(@PathVariable("id") Long id,@ModelAttribute Person person){
+
         personService.editPerson(person,id);
 
 
