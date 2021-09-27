@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MainController {
 
 
-    @GetMapping(value = { "/"})
+    @GetMapping(value = { "/d"})
     public String index() {
         return "index";
     }

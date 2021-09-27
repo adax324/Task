@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 
 
 @Controller
+@RequestMapping("/persons")
 public class PersonController {
     private PersonService personService;
     @Autowired
@@ -21,21 +22,21 @@ public class PersonController {
         this.personService = personService;
     }
     //create new person
-    @PostMapping("persons/addNewPerson")
+    @PostMapping("/addNewPerson")
     public RedirectView addNewPerson(@ModelAttribute Person person){
         personService.addPerson(person);
 
         return new RedirectView("personList");
     }
     //get person list view
-    @GetMapping("persons/personList")
+    @GetMapping("/personList")
     public String getPersonList(Model model){
         model.addAttribute("person",personService.getAll());
 
         return "persons/personList";
     }
 
-    @GetMapping("persons/editNewPerson/{id}")
+    @GetMapping("/editNewPerson/{id}")
     public String getEditPerson(@PathVariable("id")String id,Model model){
 
         model.addAttribute("person",personService.getPerson(Long.parseLong(id)));
@@ -43,7 +44,7 @@ public class PersonController {
 
         return "persons/editNewPerson";
     }
-    @PostMapping("persons/editNewPerson/{id}")
+    @PostMapping("/editNewPerson/{id}")
     public RedirectView EditPerson(@PathVariable("id") Long id,@ModelAttribute Person person){
 
         personService.editPerson(person,id);
@@ -52,14 +53,14 @@ public class PersonController {
         return new RedirectView("../personList");
     }
 
-    @GetMapping("persons/addNewPerson")
+    @GetMapping("/addNewPerson")
     public String getAddNewPerson(){
         return "persons/addNewPerson";
     }
 
     //dodawanie nowej osoby
 
-    @PostMapping("persons/delete/{id}")
+    @PostMapping("/delete/{id}")
     public RedirectView deletePersonById(@PathVariable Long id){
         personService.deleteById(id);
         return new RedirectView("../personList");
